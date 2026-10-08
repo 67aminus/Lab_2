@@ -16,21 +16,24 @@ int main() {
 
 	cout << "Введите скорость автомобиля: ";
 	cin >> speed;
-	cout << "Введите разрешенную скорость: ";
-	cin >> limit;
-	cout << "Введите признак движения в школьной зоне: ";
-	cin >> isSchool;
-	if (speed < 0 || limit < 0) cout << "Ошибка";
-	else if (speed <= limit) fine = 0;
+	if (speed < 0) cout << "Ошибка";
 	else {
-		difference = speed - limit;
-		if (difference <= 10) fine = 20;
-		else if (difference <= 30) fine = 50;
-		else if (difference <= 30) fine = 100;
+		cout << "Введите разрешенную скорость: ";
+		cin >> limit;
+		if (limit < 0) cout << "Ошибка";
+		else if (speed <= limit) fine = 0;
+		else {
+			cout << "Введите признак движения в школьной зоне: ";
+			cin >> isSchool;
+			difference = speed - limit;
+			if (difference <= 10) fine = 20;
+			else if (difference <= 30) fine = 50;
+			else fine = 100;
+			if (isSchool == 1) fine = 2 * fine;
+			else fine = fine;
+		cout << "Величина превышения: " << difference;
+	    }
+		if (speed >= 0 && limit >= 0) cout << "Величина штрафа: " << fine;
 	}
-	if (isSchool == 1) fine = 2 * fine;
-	else fine = fine;
-	cout << "Величина превышения: " << difference << "\nВеличина штрафа: " << fine;
-
 	return 0;
 }
