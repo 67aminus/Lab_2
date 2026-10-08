@@ -8,20 +8,20 @@
 #include <string>
 using namespace std;
 
-int main2() {
+int main() {
 	char type;
 	double distance;
 	double fullPrice;
 	string transport;
 
-	cout << "Введите код транспорта: \n";
+	cout << "Введите код транспорта: ";
 	cin >> type;
-	cout << "Введите расстояние поездки: \n";
+	cout << "Введите расстояние поездки: ";
 	cin >> distance;
 	if (distance > 0) {
 		switch (type)
 		{
-		case 'A':
+		case 'B':
 		{
 			fullPrice = 1.2;
 			transport = "автобус";
@@ -44,7 +44,7 @@ int main2() {
 			cout << "Ошибка: неизвестный вид танспорта";
 			break;
 		}
-		if (type == 'A' || type == 'M' || type == 'T')
+		if (type == 'B' || type == 'M' || type == 'T')
 		cout << "Вид транспорта: " << transport << "\nЦена поездки: " << fullPrice;
 	} else cout << "Ошибка: расстояние должно быть положительным";
 	return 0;
